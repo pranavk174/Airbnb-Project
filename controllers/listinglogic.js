@@ -75,7 +75,7 @@ exports.insertNew = [authentication.isLoggedIn, upload.single("image"), validati
             query: req.body.location,
             limit: 1 // ye limit issliye hai ki boht jagah ka e hota hai ki multiple coordinates hote hai to issliye hamne limit lga diya ki srf 1 hi coordinate response me aayega
         })
-        .send()
+        .send() 
 
 
     let url = req.file.path;

@@ -48,7 +48,7 @@ exports.login = [ middleware.redirectPath, authentication.auth ,async(req,res)=>
     res.redirect(redirectUrl)
     }
 ]
-
+ 
 
 exports.logOut = (req,res,next)=>{
     req.logout((err)=>{      // ye middlware passport library ka inbuilt hai jo logout krta hai   and ye session object ka use krta hai internllyy 
