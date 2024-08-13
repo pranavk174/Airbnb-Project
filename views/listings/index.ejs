@@ -1,0 +1,90 @@
+<% layout("/layouts/boilerplate") %> 
+
+
+ 
+<div class="md:flex hidden gap-[3rem] justify-center items-center pb-4 mb-5  sticky top-[5rem] z-10 bg-white w-full" >
+  <div class="opacity-[0.3] hover:opacity-[1] transition duration-[0.2s]">
+    <div class="text-center text-[1.5rem]"><i class=" fa fa-regular fa-fire "></i></div>
+    <p class="text-[0.9rem]">Trending</p>
+  </div>
+  <div class="opacity-[0.3] hover:opacity-[1] transition duration-[0.2s]">
+    <div class="text-center text-[1.5rem]"><i class="fa fa-regular fa-bed "></i></div>
+    <p class="text-[0.9rem]">Rooms</p>
+  </div>
+  <div class="opacity-[0.3] hover:opacity-[1] transition duration-[0.2s]">
+    <div class="text-center text-[1.5rem]"><i class="fa fa-regular fa-city "></i></div>
+    <p class="text-[0.9rem]">Hotels</p>
+  </div>
+  <div class="opacity-[0.3] hover:opacity-[1] transition duration-[0.2s]">
+    <div class="text-center text-[1.5rem]"><i class="fa fa-regular fa-umbrella-beach "></i></div>
+    <p class="text-[0.9rem]">Sea</p>
+  </div>
+  <div class="opacity-[0.3] hover:opacity-[1] transition duration-[0.2s]">
+    <div class="text-center text-[1.5rem]"><i class="fa fa-regular fa-water-ladder "></i></div>
+    <p class="text-[0.9rem]">Pool</p>
+  </div>
+  <div class="opacity-[0.3] hover:opacity-[1] transition duration-[0.2s]">
+    <div class="text-center text-[1.5rem]"><i class="fa fa-regular fa-mountain-city "></i></div>
+    <p class="text-[0.9rem]">Wonders</p>
+  </div>
+  <div class="opacity-[0.3] hover:opacity-[1] transition duration-[0.2s]">
+    <div class="text-center text-[1.5rem]"><i class="fa fa-regular fa-mountain "></i></div>
+    <p class="text-[0.9rem]">Trecking</p>
+  </div>
+  <div class="opacity-[0.3] hover:opacity-[1] transition duration-[0.2s]">
+    <div class="text-center text-[1.5rem]"><i class="fa fa-regular fa-fort-awesome "></i></div>
+    <p class="text-[0.9rem]">Adventurous</p>
+  </div>
+  <div class="opacity-[0.3] hover:opacity-[1] transition duration-[0.2s]">
+    <div class="text-center text-[1.5rem]"><i class="fa-solid fa-building"></i></div>
+    <p class="text-[0.9rem]">Rooms</p>
+  </div>
+ 
+  <div class="opacity-[0.3] hover:opacity-[1] transition duration-[0.2s]">
+    <div class="text-center text-[1.5rem]"><i class="fa fa-regular fa-wine-bottle "></i></div>
+    <p class="text-[0.9rem]">Party</p>
+  </div>
+  <div class="opacity-[0.3] hover:opacity-[1] transition duration-[0.2s]">
+    <div class="text-center text-[1.5rem]"><i class="fa fa-regular fa-person-swimming "></i></div>
+    <p class="text-[0.9rem]">watering</p>
+  </div>
+  <div class="opacity-[0.3] hover:opacity-[1] transition duration-[0.2s]">
+    <div class="text-center text-[1.5rem]"><i class="fa fa-regular fa-igloo "></i></div>
+    <p class="text-[0.9rem]">Trending</p>
+  </div>
+ 
+    <label class="inline-flex items-center cursor-pointer border rounded-2xl h-[2rem] p-[1.6rem]">
+      <input type="checkbox" value="" id="btn" class="sr-only peer">
+      <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+      <span class="ms-3 text-sm font-medium text-black ">Display with GST</span>
+    </label>
+
+</div>
+
+   <div class="grid grid-cols-1 md:grid-cols-2 lg:space-x-1 gap-7  mb-[2rem] lg:grid-cols-3 w-[90%] max-w-[100%] ">
+   
+    <% for(let data of dataList) { %>
+     <a href="/listings/<%= data.id %>">
+      <div
+      class=" relative min-h-[15rem] cursor-pointer border-0 rounded-2xl px-5 py-7 space-y-5 shadow-lg hover:shadow-black transition-all duration-200"
+    >
+    <img class="rounded-[1rem] h-[20rem]  w-[100%]" src="<%= data.image.url %> " alt="">
+     <div class=" absolute top-[1.5rem] right-[2.5rem]  bg-opacity-50 flex items-center justify-center">
+    <i class=" text-red-300 hover:text-red-600 text-2xl fa fa-heart "></i>
+  </div>
+      <div class="  items-center text-[90%] ml-2 " >
+       <p class="font-normal">
+      <b class="font-bold"> <%=data.title %>  </b><br>  &#8377;<%= data.price ? data.price.toLocaleString("en-IN") : 'N/A' %>/ Night &nbsp; &nbsp;
+      <i id="gsts"> +18%GST</p> </i> 
+      </div>
+    </div>
+     </a>
+    <% } %>
+  
+   </div>
+  
+  
+
+ <script>
+  
+ </script>

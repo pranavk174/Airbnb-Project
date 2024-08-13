@@ -1,0 +1,40 @@
+<% if (messages.length > 0) { %>
+   
+    <div id="alert-3" class="flex bg-[green]/20 items-center md:py-4 md:px-4 md:mt-[0.3rem] text-green-500 rounded-lg w-[100%]  md:w-[45vw] " role="alert">
+       
+        <span class="sr-only">Info</span>
+        <div class="ml-3 text-[1rem] font-medium">
+       <%= messages %> ;
+        </div>
+        <button type="button" class="ms-auto  text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 mr-3 hover:bg-green-200 inline-flex items-center justify-center h-8 w-8  dark:hover:bg-gray-700" data-dismiss-target="#alert-3" aria-label="Close">
+         
+            &#10005; 
+        </button>
+      </div>
+
+
+      <% } %>
+
+      <% if (error.length > 0) { %>
+   
+        <div id="alert-3" class="flex bg-[red]/20 items-center md:py-4 md:px-4 md:mt-[0.3rem] text-red-500 rounded-lg  w-[100%]  md:w-[45vw]  " role="alert">
+           
+            <span class="sr-only">Info</span>
+            <div class="ml-3 text-[1rem] font-medium text-center">
+           <%= error %> <i class="fa-regular fa-face-meh text-[1rem] md:text-[1.2rem] mt-[0.2rem]"></i>
+            </div>
+            <button type="button" class="ms-auto  rounded-lg focus:ring-2 focus:ring-green-400 mr-3 hover:bg-green-200 inline-flex items-center justify-center h-8 w-8  dark:hover:bg-gray-700" data-dismiss-target="#alert-3" aria-label="Close">
+             
+                &#10005; 
+            </button>
+          </div>
+    
+    
+          <% } %>
+
+    
+     
+
+
+     
+     

@@ -1,0 +1,27 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="w-[48vw] space-y-4"> 
+
+    <h1 class="font-bold text-[1.2rem] ">Leave Your Feedback for <%= data.title %></h1>
+    <form method="post" action="/listings/reviews/addreview/<%= data.id %>" class="needs-validation"  novalidate>
+      <div class="mb-4 tDiv w-[30%]">
+        <label class="block text-black text-sm font-bold mb-2" for="r"  >Ratings :  </label>
+         <input class=" form-control is-invalid bg-white/0 shadow appearance-none border rounded w-full py-2 px-3  leading-tight  focus:shadow-outline"  placeholder="1 - 5" type="number" name="rating" id="r" required>
+         <p class="mt-2  valid-feedback text-red-600 text-sm">
+          Please Enter Valid Rating <span><i class="fa fa-exclamation-triangle"></i></span>
+      </p>
+        </div>
+
+        <div class="mb-4 tDiv w-[70%]">
+          <label class="block text-black text-sm font-bold mb-2" for="c"  >Describe :  </label>
+           <textarea class=" form-control is-invalid bg-white/0 shadow appearance-none border rounded w-full py-2 px-3  leading-tight  focus:shadow-outline"  placeholder="xyz" type="text" name="comment" id="c" required></textarea>
+           <p class="mt-2  valid-feedback text-red-600 text-sm">
+            Please Enter a Valid Comment <span><i class="fa fa-exclamation-triangle"></i></span>
+        </p>
+          </div>
+
+          <button class="bg-red-500 border-2 h-[2.7rem] w-[4.5rem] rounded-xl mb-4">
+Submit
+          </button>
+    </form>
+  </div> 

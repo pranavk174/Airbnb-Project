@@ -1,0 +1,111 @@
+<% layout("/layouts/boilerplate") %>
+<script>
+  let mapToken = "<%= process.env.MAP_TOKEN %>"
+  var coordinate =   <%- JSON.stringify(data.geometry.coordinates) %>
+</script>
+   
+<div class="flex flex-col  md:w-full  justify-center items-center">
+ 
+     <div
+      class=" relative md:w-[55vw] cursor-pointer px-[3rem] py-[2rem] "
+    >
+    
+    <h1 class="text-[1.5rem] font-bold"> <%=data.title %> </h1>
+    <img class="rounded-[1rem] h-[20rem]  w-[100%]" src="<%= data.image.url %> " alt="">
+    
+      <div class="  items-center text-[90%]  " >
+        <p class="font-bold text-[1rem]"> Owned By  <i>  " <%= data.owner.username %> " </i> </p> <br>
+       <p class="flex flex-col font-normal ">
+
+      <%= data.description %> <br>  <br>
+      <!-- &#8377; <br> -->
+      <%= data.location %> <br>  <br>
+      <%= data.country %> <br>  <br>
+       </p>
+
+       <div class="flex ">
+        <legend class="mt-2 mr-3">Rating:</legend> 
+        <fieldset class="starability-slot  mt-1 flex">
+         
+           <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+           <input type="radio" id="first-rate1" name="rating" value="1"  />
+           <label for="first-rate1" title="Terrible">1 star</label>
+           <input type="radio" id="first-rate2" name="rating" value="2" />
+           <label for="first-rate2" title="Not good">2 stars</label>
+           <input type="radio" id="first-rate3" name="rating" value="3" />
+           <label for="first-rate3" title="Average">3 stars</label>
+           <input type="radio" id="first-rate4" name="rating" value="4" />
+           <label for="first-rate4" title="Very good">4 stars</label>
+           <input type="radio" id="first-rate5" name="rating" value="5" />
+           <label for="first-rate5" title="Amazing">5 stars</label>
+         </fieldset>
+
+       </div>
+            </div>
+      <div class="flex gap-4 my-5 pb-3">
+      
+       <% if(currentUser && data.owner._id.equals(currentUser._id)) {%>  
+        <a class="w-[6rem]  h-[2rem] bg-[#fe424d] font-bold  text-[1rem] rounded-md b_Shadow mt-[1rem] py-[0.2rem] px-[2rem]" href="/listings/edit/<%= data.id %>">Edit </a>
+    
+        <form class="w-[6rem]  h-[2rem] bg-[black] text-white font-bold  text-[1rem] rounded-md b_Shadow mt-[1rem] py-[0.2rem] px-[1.3rem]" method="post" action="/listings/delete/<%= data.id %>?_method=DELETE">
+            <button>Delete </button>
+        </form>
+
+        <% } %>
+
+<% if(currentUser){ %>
+        <a class="w-[8rem] text-center  h-[2rem] bg-[black] text-white font-bold  text-[1rem] rounded-md b_Shadow mt-[1rem] py-[0.2rem] px-[1.3rem]" href="/listings/reviews/reviewpage/<%=data.id %>">Add review</a>
+   <% } %>   
+      </p>
+
+      
+    </div>
+    <hr >
+<% if((data.reviews).length > 0 ){ %>
+    <h1 class="font-bold text-[1.3rem] pt-[1rem]">All Reviews</h1>
+    <div class=" p-3 grid grid-cols-1 md:grid-cols-2    gap-3 w-[100%]  ">
+    
+      <% for(let review of data.reviews) { %>
+      <div class="flex p-2 flex-col gap-2 border-2 rounded ml-[0px]">
+   <p class="font-bold"> <%= review.author.username %></p>
+        <div>
+        
+        
+
+          <p class="starability-result" data-rating="<%= review.rating %>" >
+            Rated: 3 stars
+          </p>
+        <p><%= review.comment %></p>
+      </div>
+      <% if(currentUser){ %>
+   
+      <form method="post" action="/listings/reviews/<%= data._id %>/review/<%= review._id %>?_method=DELETE">
+       <button class="bg-black text-white rounded px-3 py-2">Delete</button>
+      </form>
+      <% } %>
+
+    </div>
+  
+<% } %>
+    
+
+</div>   
+ <% } %>
+ <div class="flex flex-col  gap-4 my-[1rem] pb-3">
+  <h1 class="font-bold text-[1.2rem]">You will be Here</h1>
+  <div  id="map"></div>
+    </div>
+
+    
+    </div> 
+</div>
+
+
+  
+<script src="/js/map.js"></script>
+
+
+
+
+  
+

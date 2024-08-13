@@ -1,0 +1,47 @@
+<%- layout("/layouts/boilerplate") %>
+
+<div class="  h-[40rem]  md:h-[100vh] w-full flex md:flex-col  bg-[url('https://i.pinimg.com/originals/fc/c5/b8/fcc5b8f9fae754d7d48e5a5ff4b7f48d.jpg')] bg-cover no-repeat ">
+    
+   <div class="flex flex-col md:flex-row md:h-full w-full">
+    <div class="flex   md:items-center w-[100%] md:w-[50%] mt-5 md:mt-0 ">
+    
+            <p class="font-bold  text-white text-[2.2rem] md:text-[5rem] w-full text-center">Your <span class="text-[3rem] md:text-[8rem] text-red-600">A</span>dventure <br> <span class="text-[3rem] md:text-[8rem] text-red-600">S</span>tarts Here!</p>
+          
+    
+        
+           </div>
+    <div class="flex flex-col justify-center items-center w-full md:w-[50%]"> 
+        <form class=" md:hover:bg-white/40  w-[95vw]  md:w-[30vw] md:h-[50vh]  needs-validation bg-white/80 md:bg-white/10 scale-50  hover:scale-100  transition duration-[0.5s] px-[2rem] md:px-[3rem] py-[3rem] space-y-[2rem]   shadow-lg rounded-xl" action="/listings/user/signup" method="post" novalidate>
+            <h1 class="font-bold text-[2rem]  md:text-[3rem] text-black opacity-[0.2] hover:opacity-[0.7] ">SignUp Page!</h1>
+        <div class="space-y-[2rem]"> 
+            
+        <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="username" id="u" class="is-invalid block py-2.5 px-0 w-full text-[1rem] text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="u" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-black duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Username</label>
+            <p class="mt-2  valid-feedback text-red-600 text-sm">
+                Please Enter a Valid Username <span><i class="fa fa-exclamation-triangle"></i></span>
+            </p>
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+            <input type="email" name="email" id="e" class="is-invalid block py-2.5 px-0 w-full text-[1rem] text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="e" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-black duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email-address</label>
+            <p class="mt-2  valid-feedback text-red-600 text-sm">
+                Please Enter a Valid email <span><i class="fa fa-exclamation-triangle"></i></span>
+            </p>
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+            <input type="password" name="password" id="p" class="is-invalid block py-2.5 px-0 w-full text-[1rem] text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+            <label for="p" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-black duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+            <p class="mt-2  valid-feedback text-red-600 text-sm">
+                Please Enter a Valid Password <span><i class="fa fa-exclamation-triangle"></i></span>
+            </p>
+        </div>
+    </div>
+        
+        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-[1rem] w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+      </form></div>
+   </div>
+      
+</div>
+
+
