@@ -25,7 +25,7 @@ exports.addReview = [
      await listing.save();
     await newReview.save();
     req.flash("success", "new Review Added! ");
-    res.redirect(`/listings/${listing._id}`);
+    res.redirect(`/${listing._id}`);
   },
 ];
 
@@ -42,10 +42,10 @@ exports.deleteReview = [
     if (rvw && data) {
       req.flash("success", "Review Deleted!");
 
-      res.redirect(`/listings/${id}`);
+      res.redirect(`/${id}`);
     } else {
         req.flash("error", "Review Not Deleted");
-        res.redirect(`/listings/${id}`);
+        res.redirect(`/${id}`);
     }
   }),
 ];

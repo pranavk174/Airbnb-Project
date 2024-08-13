@@ -9,7 +9,7 @@ exports.isOwner = async (req,res,next)=>{
     if( !data.owner._id.equals(res.locals.currentUser._id)){
 
         req.flash("error",`you dont have permission to do this Operation`)
-        return res.redirect(`/listings/${data.id}`)
+        return res.redirect(`/${data.id}`)
     }
     next()
 }
@@ -20,7 +20,7 @@ exports.isReviewAuthor = async (req,res,next)=>{
 
     if( !rData.author.equals(res.locals.currentUser._id)){
         req.flash("error",`you are not the author to delete`)
-        return res.redirect(`/listings/${id}`)
+        return res.redirect(`/${id}`)
     }
     next()
 }

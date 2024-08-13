@@ -4,8 +4,8 @@
       
         
         <div class="space-x-[1.5rem] flex items-center ml-[0.5rem] md:ml-[1.5rem]  text-[#222222] font-bold w-[40%] md:w-[33.33%] ">
-            <a class="text-[1.5rem] md:text-[2rem] text-[#fe424d]  " href="/listings"><i class="fa-brands fa-airbnb mt-[0.4rem]"></i> </a>
-            <a class="text-[0.8rem] md:text-[1rem] hover:text-blue-500 " href="/listings/lists">Explore Airbnb</a>
+            <a class="text-[1.5rem] md:text-[2rem] text-[#fe424d]  " href="/"><i class="fa-brands fa-airbnb mt-[0.4rem]"></i> </a>
+            <a class="text-[0.8rem] md:text-[1rem] hover:text-blue-500 " href="/lists">Explore Airbnb</a>
 
         </div> 
         
@@ -24,17 +24,17 @@
             </form>
         </div>
         <div class="space-x-[0.8rem] md:space-x-[1.5rem] w-[60%] md:w-[33.33%] flex justify-center items-center md:justify-end mr-[1.6rem] md:mr-[2rem]   md:mt-1 text-[#222222]  text-black font-bold">
-            <a class="text-[0.8rem] md:text-[1rem] hover:text-blue-500" href="/listings/new">Add New Listings</a>
+            <a class="text-[0.8rem] md:text-[1rem] hover:text-blue-500" href="/new">Add New Listings</a>
            <%  if (!currentUser) { %>
-            <a class="text-[0.8rem] md:text-[1rem] hover:text-blue-500 " href="/listings/user/register"> SignUp </a>
-            <a class="text-[0.8rem] md:text-[1rem] hover:text-blue-500 " href="/listings/user/loginpage">LogIn</a>
+            <a class="text-[0.8rem] md:text-[1rem] hover:text-blue-500 " href="/user/register"> SignUp </a>
+            <a class="text-[0.8rem] md:text-[1rem] hover:text-blue-500 " href="/user/loginpage">LogIn</a>
            
 
             <% } %>
 
             <%  if (currentUser) { %>
             
-            <a class="text-[1rem]  hover:text-blue-500 p-[0.6rem]  p-[0.6rem] rounded-xl" href="/listings/user/logout">Logout</a>
+            <a class="text-[1rem]  hover:text-blue-500 p-[0.6rem]  p-[0.6rem] rounded-xl" href="/user/logout">Logout</a>
         
             <% } %>
         </div> 

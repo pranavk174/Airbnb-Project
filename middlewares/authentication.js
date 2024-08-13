@@ -5,7 +5,7 @@ module.exports.isLoggedIn = (req,res , next)=>{
 if(!req.isAuthenticated()){      // ye chek krega ki user logged in hai ya nahi.. ye passport ka method hai authentication ka
    req.session.redirectUrl = req.originalUrl           // hmne original path ko session ke new variable me store krwa liya.  
     req.flash("error","you must be logged in")
-    return res.redirect("/listings/user/loginpage")
+    return res.redirect("/user/loginpage")
 }
 next();
 }
@@ -18,7 +18,7 @@ exports.redirectPath =(req,res,next)=>{
 }
 
 exports.auth =  passport.authenticate("local",      // hamne strategy daali hai "local"
-    {failureRedirect : "/listings/user/login" ,      // ye code authentication ke liye hai... agr login fail hota hai kisi wajah se to direct login page pe redirect krega... 
+    {failureRedirect : "/user/login" ,      // ye code authentication ke liye hai... agr login fail hota hai kisi wajah se to direct login page pe redirect krega... 
     failureFlash : true  ,                      // authentication fail hone pe flash messsage me show hoga fail hone ka reason    
     })
 

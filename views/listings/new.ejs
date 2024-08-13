@@ -7,7 +7,7 @@
 
  <div class="h-[80vh] md:h-[77vh] w-full flex flex-col justify-center items-center bg-[url('https://i0.wp.com/kredit-on.ru/wp-content/uploads/f/5/3/f536ec4406e7e9ec3a4340ce094e8a37.jpeg?ssl=1')] bg-cover gap-3">
     <h1 class="font-bold text-[2rem] md:text-[3rem] text-white ">Create New Listings</h1>
-   <form class="md:w-[50%] needs-validation bg-white/30 p-5 shadow-2xl rounded-xl md:space-y-6 " action="/listings/new" method=post enctype="multipart/form-data" novalidate>
+   <form class="md:w-[50%] needs-validation bg-white/30 p-5 shadow-2xl rounded-xl md:space-y-6 " action="/new" method=post enctype="multipart/form-data" novalidate>
        <div class="relative z-0 w-full mb-5 group">
            <input type="text" name="title" id="t" class=" is-invalid block py-2.5 px-0 w-full text-[1rem] text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
            <label for="t" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Add Title</label>
@@ -22,13 +22,7 @@
                Please Enter a Valid Description <span><i class="fa fa-exclamation-triangle"></i></span>
            </p>
        </div>
-       <!-- <div class="relative z-0 w-full mb-5 group">
-           <input type="url" name="image" id="i" class=" is-invalid block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-           <label for="i" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Image Url</label>
-           <p class="mt-2  valid-feedback text-red-600 text-sm">
-               Please Enter a Valid Url <span><i class="fa fa-exclamation-triangle"></i></span>
-           </p>
-       </div> -->
+      
        <div class="relative z-0 w-full mb-5 group">
         <input type="file" name="image" id="i" class=" is-invalid block py-2.5 px-0 w-full text-[1rem] text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
         <label for="i" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Image Url</label>

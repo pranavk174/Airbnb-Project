@@ -58,7 +58,7 @@ app.listen(3000 , ()=>{
 
 
 
-app.use("/listings",route)
+app.use("/",route)
 
 
 
