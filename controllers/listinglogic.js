@@ -52,8 +52,7 @@ exports.showdata = [authentication.isLoggedIn, utils.asyncWrap(async (req, res, 
         res.redirect("/")
     }
     res.render("listings/show.ejs", {
-        data
-    })
+        data })
 })]
 
 
@@ -87,7 +86,7 @@ exports.insertNew = [authentication.isLoggedIn, upload.single("image"), validati
         filename
     } // image ki url and image ka naam save hoga
     const done = await data.save();
-    req.flash("success", "new Listings created!")
+    req.flash("success", "New Listings created!")
     res.redirect("/listings/lists")
 
 })]
@@ -134,7 +133,7 @@ exports.editPage = [authentication.isLoggedIn, authorization.isOwner, upload.sin
     await data.save()
 
     req.flash("success", "Editing Successfull  ")
-    res.redirect(`/listings${data.id}`)
+    res.redirect(`/listings/${data.id}`)
 })]
 
 exports.deleteData = [authentication.isLoggedIn, authorization.isOwner, utils.asyncWrap(async (req, res) => {

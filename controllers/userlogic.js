@@ -45,7 +45,6 @@ exports.signUp = utils.asyncWrap(async(req,res)=>{
 exports.login = [ middleware.redirectPath, authentication.auth ,async(req,res)=>{                     // agr authentication success rha tbhi ye flash messsage show hoga
     req.flash("success" , "Login Success ! , welcome to WanderLust.. ")
     const redirectUrl =  res.locals.redirectUrl || "/listings/lists"            // ye hamne issliye kiya ki agr originalUrl store nhi hua to hm direct lists page pe redirect krenge
-   console.log("the error basedd url is ",redirectUrl)
     res.redirect(redirectUrl)
     }
 ]
