@@ -12,14 +12,16 @@ next();
 
 exports.redirectPath =(req,res,next)=>{
     if(req.session.redirectUrl){
+
         res.locals.redirectpath = req.session.redirectUrl              // isko hmne issliye kiya qki login hone ke baad passport  session ko reset kr deta hai.. to issliye usko res.locals me store krwa liya taaki delet hone k baad v vo isme saved rhe..
     }
     next()
 }
 
 exports.auth =  passport.authenticate("local",      // hamne strategy daali hai "local"
-    {failureRedirect : "/user/login" ,      // ye code authentication ke liye hai... agr login fail hota hai kisi wajah se to direct login page pe redirect krega... 
-    failureFlash : true  ,                      // authentication fail hone pe flash messsage me show hoga fail hone ka reason    
+    { failureFlash : true  ,
+        failureRedirect : "/user/loginpage" ,      // ye code authentication ke liye hai... agr login fail hota hai kisi wajah se to direct login page pe redirect krega... 
+                         // authentication fail hone pe flash messsage me show hoga fail hone ka reason    
     })
 
  
