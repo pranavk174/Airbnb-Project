@@ -28,13 +28,13 @@ exports.signUp = utils.asyncWrap(async(req,res)=>{
         return next(err)
     }
     req.flash("success","Welcome To WanderLust")
-    res.redirect("/lists")
+    res.redirect("/listings/lists")
    })
    
     }
     catch(err){ 
         req.flash("error" , "User Already exists")
-        res.redirect("/user/register")
+        res.redirect("/listings/user/register")
     }
 }
 ) 
@@ -44,8 +44,8 @@ exports.signUp = utils.asyncWrap(async(req,res)=>{
 
 exports.login = [ middleware.redirectPath, authentication.auth ,async(req,res)=>{                     // agr authentication success rha tbhi ye flash messsage show hoga
     req.flash("success" , "Login Success ! , welcome to WanderLust.. ")
-    const redirectUrl =  res.locals.redirectpath || "/lists"            // ye hamne issliye kiya ki agr originalUrl store nhi hua to hm direct lists page pe redirect krenge
-   console.log(redirectUrl)
+    const redirectUrl =  res.locals.redirectUrl || "/listings/lists"            // ye hamne issliye kiya ki agr originalUrl store nhi hua to hm direct lists page pe redirect krenge
+   console.log("the error basedd url is ",redirectUrl)
     res.redirect(redirectUrl)
     }
 ]
@@ -57,7 +57,7 @@ exports.logOut = (req,res,next)=>{
           return  next(err)
         }
         req.flash("success","you are successfully Logged Out!")
-        res.redirect("/lists")
+        res.redirect("/listings/lists")
     })
 }
 

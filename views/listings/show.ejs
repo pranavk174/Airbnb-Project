@@ -45,16 +45,16 @@
       <div class="flex gap-4 my-5 pb-3">
       
        <% if(currentUser && data.owner._id.equals(currentUser._id)) {%>  
-        <a class="w-[6rem]  h-[2rem] bg-[#fe424d] font-bold  text-[1rem] rounded-md b_Shadow mt-[1rem] py-[0.2rem] px-[2rem]" href="/edit/<%= data.id %>">Edit </a>
+        <a class="w-[6rem]  h-[2rem] bg-[#fe424d] font-bold  text-[1rem] rounded-md b_Shadow mt-[1rem] py-[0.2rem] px-[2rem]" href="/listings/edit/<%= data.id %>">Edit </a>
     
-        <form class="w-[6rem]  h-[2rem] bg-[black] text-white font-bold  text-[1rem] rounded-md b_Shadow mt-[1rem] py-[0.2rem] px-[1.3rem]" method="post" action="/delete/<%= data.id %>?_method=DELETE">
+        <form class="w-[6rem]  h-[2rem] bg-[black] text-white font-bold  text-[1rem] rounded-md b_Shadow mt-[1rem] py-[0.2rem] px-[1.3rem]" method="post" action="/listings/delete/<%= data.id %>?_method=DELETE">
             <button>Delete </button>
         </form>
 
         <% } %>
 
 <% if(currentUser){ %>
-        <a class="w-[8rem] text-center  h-[2rem] bg-[black] text-white font-bold  text-[1rem] rounded-md b_Shadow mt-[1rem] py-[0.2rem] px-[1.3rem]" href="/reviews/reviewpage/<%=data.id %>">Add review</a>
+        <a class="w-[8rem] text-center  h-[2rem] bg-[black] text-white font-bold  text-[1rem] rounded-md b_Shadow mt-[1rem] py-[0.2rem] px-[1.3rem]" href="/listings/reviews/reviewpage/<%=data.id %>">Add review</a>
    <% } %>   
       </p>
 
@@ -79,7 +79,7 @@
       </div>
       <% if(currentUser){ %>
    
-      <form method="post" action="/reviews/<%= data._id %>/review/<%= review._id %>?_method=DELETE">
+      <form method="post" action="/listings/reviews/<%= data._id %>/review/<%= review._id %>?_method=DELETE">
        <button class="bg-black text-white rounded px-3 py-2">Delete</button>
       </form>
       <% } %>

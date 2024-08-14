@@ -3,7 +3,7 @@
 <div class="w-[48vw] space-y-4"> 
 
     <h1 class="font-bold text-[1.2rem] ">Leave Your Feedback for <%= data.title %></h1>
-    <form method="post" action="/reviews/addreview/<%= data.id %>" class="needs-validation"  novalidate>
+    <form method="post" action="listings/reviews/addreview/<%= data.id %>" class="needs-validation"  novalidate>
       <div class="mb-4 tDiv w-[30%]">
         <label class="block text-black text-sm font-bold mb-2" for="r"  >Ratings :  </label>
          <input class=" form-control is-invalid bg-white/0 shadow appearance-none border rounded w-full py-2 px-3  leading-tight  focus:shadow-outline"  placeholder="1 - 5" type="number" name="rating" id="r" required>

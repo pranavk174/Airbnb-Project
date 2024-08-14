@@ -29,7 +29,6 @@ exports.home = (req, res) => {
 
 exports.listings = utils.asyncWrap(async (req, res) => {
     const dataList = await Schema.find();
-
     res.render("listings/index.ejs", {
         dataList
     })
@@ -89,7 +88,7 @@ exports.insertNew = [authentication.isLoggedIn, upload.single("image"), validati
     } // image ki url and image ka naam save hoga
     const done = await data.save();
     req.flash("success", "new Listings created!")
-    res.redirect("/lists")
+    res.redirect("/listings/lists")
 
 })]
 
@@ -99,7 +98,7 @@ exports.getEditPage = [authentication.isLoggedIn, authorization.isOwner, utils.a
 
     if (!data) {
         req.flash("error", "The requested Data can't be edited because ,it does not exist !")
-        res.redirect("/")
+        res.redirect("/listings")
     }
     let dataimage = data.image.url
     dataimage = dataimage.replace("/upload", "/upload/h_200,w_300/")
@@ -135,11 +134,11 @@ exports.editPage = [authentication.isLoggedIn, authorization.isOwner, upload.sin
     await data.save()
 
     req.flash("success", "Editing Successfull  ")
-    res.redirect(`/${data.id}`)
+    res.redirect(`/listings${data.id}`)
 })]
 
 exports.deleteData = [authentication.isLoggedIn, authorization.isOwner, utils.asyncWrap(async (req, res) => {
     await Schema.findByIdAndDelete(req.params.id)
     req.flash("success", "Data Deleted ")
-    res.redirect("/lists")
+    res.redirect("/listings/lists")
 })]
