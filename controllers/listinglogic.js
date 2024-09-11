@@ -5,12 +5,8 @@ const validation = require("../validation/validationlogic.js")
 const authentication = require("../middlewares/authentication")
 const authorization = require("../middlewares/authorization")
 const multer = require("multer") // ye form data ko parse krne k liye jisme ham file type data ko parse krte hai
-const {
-    storage
-} = require("../configs/cloudConfigs.js")
-const upload = multer({
-    storage
-}) // iska mtlb ki ye storage naam ke folder me store hoga jo cloudinary me hai
+const { storage} = require("../configs/cloudConfigs.js")
+const upload = multer({ storage}) // iska mtlb ki ye storage naam ke folder me store hoga jo cloudinary me hai
 const mbxGeoCoding = require('@mapbox/mapbox-sdk/services/geocoding'); // ye api use ho rh ahai taaki ham koi location daale to uska coordinates save ho jaaye map me
 
 
@@ -32,14 +28,53 @@ exports.listings = utils.asyncWrap(async (req, res) => {
     res.render("listings/index.ejs", {
         dataList
     })
-
 })
+
+exports.searchData = [
+    authentication.isLoggedIn, 
+    utils.asyncWrap(async (req, res, next) => {
+        const title = req.query.title;
+        console.log("Searching for title:", title);
+
+        try {
+            // Using $regex for partial name matching, case-insensitive
+            const filteredList = await Schema.find({
+                title: { $regex: title, $options: 'i' }  // 'i' makes it case-insensitive
+            })
+            .populate({
+                path: "reviews", // Nested populate for author details
+                populate: {
+                    path: "author",
+                }
+            })
+            .populate("owner");
+
+            // If no matching data is found
+            if (filteredList.length === 0) {
+                req.flash("error", "No matching listings found!");
+                return res.redirect("/listings/lists");  // Redirect to listings page
+            }
+
+            console.log("Filtered listings:", filteredList);
+
+            // Render the index page with the filtered results
+            res.render("listings/index.ejs", {
+                dataList: filteredList,  // Pass the filtered list back to the index page
+                searchQuery: title  // Pass the search query to display the filter
+            });
+        } catch (err) {
+            console.error("Error during search:", err);
+            req.flash("error", "Something went wrong during search!");
+            res.redirect("/listings/lists");
+        }
+    })
+];
 
 
 exports.showdata = [authentication.isLoggedIn, utils.asyncWrap(async (req, res, next) => {
 
 
-    const data = await Schema.findById(req.params.id)
+    const data = await Schema.findById(req.params.id)  
         .populate({
             path: "reviews", // hmne nested populate method ka use kiya hai.... taaki review ke sath uske author ka naam v show kre
             populate: {
@@ -51,6 +86,7 @@ exports.showdata = [authentication.isLoggedIn, utils.asyncWrap(async (req, res, 
         req.flash("error", "The requested Data does not exist!")
         res.redirect("/")
     }
+  
     res.render("listings/show.ejs", {
         data })
 })]

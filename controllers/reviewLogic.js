@@ -24,6 +24,7 @@ exports.addReview = [
     listing.reviews.push(newReview);
      await listing.save();
     await newReview.save();
+    console.log("review added")
     req.flash("success", "new Review Added! ");
     res.redirect(`/listings/${listing._id}`);
   },

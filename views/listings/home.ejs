@@ -1,8 +1,124 @@
 <% layout("/layouts/boilerplate") %>
 
-<div class=" flex flex-col items-center justify-center bg-black h-[47.2rem] space-y-5 w-full max-w-[100%]">
-    <h1 class="font-bold text-[3rem] md:text-[5rem] text-center text-white">Welcome to Our Website !</h1>
-    
-    <a class="bg-blue-500 hover:bg-red-500 transition-[0.2s] h-[3rem] w-[7rem] flex justify-center items-center rounded-xl" href="/listings/lists">Explore Us</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div
+        class="relative flex items-center justify-center h-[47.2rem] w-full max-w-[100%] bg-black bg-[url('/images/bg2.jpg')] bg-cover bg-center">
+        
+        <!-- Dark overlay to dim background -->
+        <div class="absolute inset-0 bg-black opacity-60"></div>
 
+        <!-- Centered content -->
+        <div class="relative z-10 text-center flex flex-col items-center">
+            <h1 class="font-bold text-[3rem] md:text-[5rem] typing-animation">
+                Welcome to Our Website!
+            </h1>
+
+            <a class="explore-button mt-5" href="/">Explore Us</a>
+        </div>
+
+        <style>
+            /* Google Fonts */
+            
+                .nerko-one-regular {
+                    font-family: "Nerko One", cursive;
+                    font-weight: 400;
+                    font-style: normal;
+                  }
+                  
+            
+
+            /* Typing Animation */
+            @keyframes typing {
+                from {
+                    width: 0;
+                }
+                to {
+                    width: 100%;
+                }
+            }
+
+            @keyframes cursor-blink {
+                0% {
+                    border-color: transparent;
+                }
+                100% {
+                    border-color: white;
+                }
+            }
+
+            .typing-animation {
+                overflow: hidden; /* Ensures the text appears to be typed */
+                white-space: nowrap; /* Keeps text in a single line */
+                border-right: .15em solid white; /* Creates a cursor effect */
+                color: white; /* Text color */
+                animation: typing 3s steps(50, end) 1s 1 normal both, cursor-blink 0.6s step-end infinite; /* Faster typing animation with delay */
+                font-family: 'Montserrat', sans-serif;
+                font-size: 3rem; /* Ensure proper font size */
+                /* Optional smoothness for modern browsers */
+                font-smooth: antialiased;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            /*Explore Button*/
+
+            /* Base button styles */
+            .explore-button {
+                position: relative;
+                background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+                color: white;
+                font-weight: bold;
+                height: 3rem;
+                width: 7rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 1.5rem;
+                text-decoration: none;
+                overflow: hidden;
+                transition: color 0.3s ease, transform 0.3s ease;
+                z-index: 1;
+                font-family: 'Roboto', sans-serif;
+            }
+        
+            /* Pulse effect */
+            .explore-button::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 300%;
+                height: 300%;
+                background: radial-gradient(circle, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 70%);
+                border-radius: 50%;
+                transition: opacity 0.3s ease, transform 0.3s ease;
+                opacity: 0;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+            }
+        
+            /* Hover effects */
+            .explore-button:hover {
+                color: #f1f5f9; /* Lighter text color on hover */
+                transform: scale(1.1); /* Slightly enlarge button on hover */
+            }
+        
+            .explore-button:hover::before {
+                opacity: 1; /* Show pulse effect */
+                transform: translate(-50%, -50%) scale(0.8); /* Scale down for a pulsing effect */
+            }
+        </style>
+    </div>
+</body>
+</html>

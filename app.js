@@ -13,7 +13,7 @@ require("dotenv").config()
  
 
 const path = require("path") 
-
+ 
 const engine = require("ejs-mate"); 
 app.engine("ejs" , engine)
 const route = require("./routes/routes")
@@ -51,7 +51,7 @@ const connect = async() =>{
 }
 connect()
 
-app.listen(3000 , ()=>{
+app.listen(4000 , ()=>{
     console.log("server started")
 })
 
