@@ -13,7 +13,7 @@ require("dotenv").config()
  
 
 const path = require("path") 
-
+ 
 const engine = require("ejs-mate"); 
 app.engine("ejs" , engine)
 const route = require("./routes/routes")

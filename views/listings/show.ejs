@@ -10,7 +10,7 @@
       class=" relative md:w-[55vw] cursor-pointer px-[3rem] py-[2rem] "
     >
     
-    <h1 class="text-[1.5rem] font-bold"> <%=data.title %> </h1>
+    <h1 class="text-[1.5rem] font-bold"> <%= data.title %> </h1>
     <img class="rounded-[1rem] h-[20rem]  w-[100%]" src="<%= data.image.url %> " alt="">
     
       <div class="  items-center text-[90%]  " >
@@ -63,21 +63,18 @@
     <hr >
 <% if((data.reviews).length > 0 ){ %>
     <h1 class="font-bold text-[1.3rem] pt-[1rem]">All Reviews</h1>
-    <div class=" p-3 grid grid-cols-1 md:grid-cols-2    gap-3 w-[100%]  ">
+    <div class=" p-3  grid grid-cols-1 md:grid-cols-2   gap-3 w-[100%]  ">
     
       <% for(let review of data.reviews) { %>
-      <div class="flex p-2 flex-col gap-2 border-2 rounded ml-[0px]">
+      <div class="flex p-2 h-[8rem] flex-col gap-4 border-2 rounded-xl ml-[0px]">
    <p class="font-bold"> <%= review.author.username %></p>
-        <div>
-        
-        
-
+        <div class="space-y-3" >
           <p class="starability-result" data-rating="<%= review.rating %>" >
             Rated: 3 stars
           </p>
         <p><%= review.comment %></p>
       </div>
-      <% if(currentUser){ %>
+      <% if(data.owner.username === currentUser ){ %>
    
       <form method="post" action="/listings/reviews/<%= data._id %>/review/<%= review._id %>?_method=DELETE">
        <button class="bg-black text-white rounded px-3 py-2">Delete</button>

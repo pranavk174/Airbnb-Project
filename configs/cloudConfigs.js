@@ -1,5 +1,5 @@
 const cloudinary = require("cloudinary").v2       // iska matlb ki cloudinary ke version2 ko require kr rhe hai
-const {CloudinaryStorage } =require("multer-storage-cloudinary")      
+const {CloudinaryStorage } = require("multer-storage-cloudinary")      
 
 
 cloudinary.config({       // ye hamne configiration ke liye daalaa hai taaki ham cloudinary storage k sath configuration setup kr le
@@ -12,7 +12,7 @@ const storage = new CloudinaryStorage({    // storage define kri hai hamne cloud
     cloudinary: cloudinary ,
     params:{
         folder : "wanderlust_DEV",     // isii folder me data save hoga  
-        allowed_Format : async(req,file)=>[ 'png' ,'jpg' , 'jpeg']   // uss file me ye formats ki fil save krwa skte hai
+        allowed_Format : async(req,file)=>[ 'png' ,'jpg' , 'jpeg']   // uss file me ye formats ki file save krwa skte hai
       
     },
 })
